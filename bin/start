@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo _config.yml | entr -rn \
+    bundle exec \
+      jekyll serve --livereload
