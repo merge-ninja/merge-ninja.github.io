@@ -1,5 +1,3 @@
-![Merge Ninja Icon](icon.svg)
-
 # Merge Ninja
 
 - Logo / Branding
