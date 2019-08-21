@@ -1,0 +1,19 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    David Rogers aka "AL the X" -- Hacker -- @al_the_x
+
+# THANKS
+
+    [GitHub Actions](https://github.com/actions/)
+    [Mergeability/Mergeable](https://github.com/mergeability/mergeable)
+
+# TECHNOLOGY COLOPHON
+
+    [HTML5 Boilerplate for CSS3, HTML5](https://html5boilerplate.com)
+    [Apache Server Configs](https://github.com/h5bp/server-configs-apache)
+    [jQuery](https://github.com/jquery/jquery)
+    [Modernizr](https://github.com/Modernizr/Modernizr)
+    [Normalize.css](https://github.com/necolas/normalize.css)
