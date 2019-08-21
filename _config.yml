@@ -1,3 +1,11 @@
+# For `jerkyll-github-metadata` re https://help.github.com/en/articles/repository-metadata-on-github-pages
+repository: merge-ninja/merge-ninja.github.io
+title: Merge Ninja
+tagline: Zero-configuration Pull Request Checks with sane defaults
+description: >-
+  Merge Ninja is a zero-configuration GitHub App for enforcing sane defaults
+  for GitHub Pull Request checks. Made with Probot <https://probot.github.com/>
+
 ## Jekyll Defaults
 ## https://jekyllrb.com/docs/configuration/default/
 
@@ -111,7 +119,7 @@ plugins:
   # Defaults
   # - jekyll-coffeescript
   # - jekyll-gist
-  # - jekyll-github-metadata
+  # - jekyll-github-metadata # https://github.com/jekyll/github-metadata
   # - jekyll-paginate
   # - jekyll-relative-links
   # - jekyll-optional-front-matter
