@@ -27,6 +27,16 @@ description: >-
 # safe                : false
 # include             : [".htaccess"]
 # exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
+exclude:
+  - .vim # Project-specific session files / settings
+  - Gemfile
+  - Gemfile.lock
+  - bin/ # bundle binstubs
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 # keep_files          : [".git", ".svn"]
 # encoding            : "utf-8"
 # markdown_ext        : "markdown,mkdown,mkdn,mkd,md"
@@ -99,7 +109,7 @@ description: >-
 #   hard_wrap: false
 # future: true
 # jailed: false
-# theme: jekyll-theme-primer
+theme: # Don't use a theme
 # gfm_quirks: paragraph_end
 
 ## Configuration settings you cannot change
@@ -116,16 +126,16 @@ description: >-
 #   syntax_highlighter: rouge
 
 plugins:
-  # Defaults
-  # - jekyll-coffeescript
-  # - jekyll-gist
-  # - jekyll-github-metadata # https://github.com/jekyll/github-metadata
-  # - jekyll-paginate
-  # - jekyll-relative-links
-  # - jekyll-optional-front-matter
-  # - jekyll-readme-index
-  # - jekyll-default-layout
-  # - jekyll-titles-from-headings
+  # Defaults from Github Pages
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-github-metadata # https://github.com/jekyll/github-metadata
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
 
   # Optional
   # - jekyll-feed
