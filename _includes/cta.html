@@ -1,0 +1,37 @@
+<{{include.row.tag | default: 'div'}} class="{{include.row.classes | join: ' ' | prepend: 'row'}}">
+  <form class="call-to-action"
+    method="{{include.campaign.action.method | default: 'post'}}"
+    action="{{include.campaign.action.url}}"
+  >
+    {% if include.campaign.legend %}
+    <legend>
+      {{include.campaign.legend}}
+    </legend>
+    {% endif %}
+    {% for field in include.campaign.fields %}
+    <fieldset>
+      {% if field.label and field.label_right != true %}
+      <label for="{{field.name}}">{{field.label}}</label>
+      {% endif %}
+      <input
+        type="{{field.type | default: 'text'}}"
+        name="{{field.name}}"
+        {% if field.placeholder %}placeholder="{{field.placeholder}}"{% endif %}
+      >
+      {% if include.campaign.submit.attached == field.name %}
+      <button type="submit" class="attached">
+        {{include.campaign.submit.text}}
+      </button>
+      {% endif %}
+      {% if field.label and field.label_right %}
+      <label for="{{field.name}}">{{field.label}}</label>
+      {% endif %}
+    </fieldset>
+    {% endfor %}
+    {% if include.campaign.submit.attached == nil %}
+    <button type="submit">
+      {{include.campaign.submit.text | default: "Sign me up!"}}
+    </button>
+    {% endif %}
+  </form>
+</{{include.row.tag | default: 'div'}}>
