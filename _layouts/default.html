@@ -14,12 +14,17 @@
   <meta name="description" content="{{meta_description}}">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="{{'site.webmanifest' | relative_url}}">
+  <link rel="apple-touch-icon" href="{{'icon.png' | relative_url}}">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="{{'css/normalize.css' | relative_url}}">
   <link rel="stylesheet" href="//unpkg.com/typebase.css/typebase.css">
+  <link rel="stylesheet" href="{{'css/main.css' | relative_url}}">
+  {% assign page_style = site.static_files | where: "basename", page.name | first %}
+  <!-- page_style for `{{page.name}}`: `{{page_style.path | default: "not found"}}` -->
+  {% if page_style %}
+  <link rel="stylesheet" href="{{page_style.path | relative_url}}">
+  {% endif %}
 
   <meta name="theme-color" content="#fafafa">
 </head>
