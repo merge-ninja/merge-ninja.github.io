@@ -109,7 +109,7 @@ exclude:
 #   hard_wrap: false
 # future: true
 # jailed: false
-# theme: jekyll-theme-primer
+theme: # Don't use a theme
 # gfm_quirks: paragraph_end
 
 ## Configuration settings you cannot change
