@@ -126,16 +126,16 @@ theme: # Don't use a theme
 #   syntax_highlighter: rouge
 
 plugins:
-  # Defaults
-  # - jekyll-coffeescript
-  # - jekyll-gist
-  # - jekyll-github-metadata # https://github.com/jekyll/github-metadata
-  # - jekyll-paginate
-  # - jekyll-relative-links
-  # - jekyll-optional-front-matter
-  # - jekyll-readme-index
-  # - jekyll-default-layout
-  # - jekyll-titles-from-headings
+  # Defaults from Github Pages
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-github-metadata # https://github.com/jekyll/github-metadata
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-default-layout
+  - jekyll-titles-from-headings
 
   # Optional
   # - jekyll-feed
