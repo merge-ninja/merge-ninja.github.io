@@ -28,6 +28,7 @@ description: >-
 # include             : [".htaccess"]
 # exclude             : ["Gemfile", "Gemfile.lock", "node_modules", "vendor/bundle/", "vendor/cache/", "vendor/gems/", "vendor/ruby/"]
 exclude:
+  - .vim # Project-specific session files / settings
   - Gemfile
   - Gemfile.lock
   - bin/ # bundle binstubs
