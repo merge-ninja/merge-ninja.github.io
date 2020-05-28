@@ -1,14 +1,16 @@
-<{{include.row.tag | default: 'div'}} class="{{include.row.classes | join: ' ' | prepend: 'row'}}">
+{% assign campaign = include.campaign %}
+{% assign row = include.tag | default: "aside" %}
+<{{row}} class="{{include.classes | join: ' ' | prepend: 'row cta ' | trim}}">
   <form class="call-to-action"
-    method="{{include.campaign.action.method | default: 'post'}}"
-    action="{{include.campaign.action.url}}"
+    method="{{campaign.action.method | default: 'post'}}"
+    action="{{campaign.action.url}}"
   >
-    {% if include.campaign.legend %}
+    {% if campaign.legend %}
     <legend>
-      {{include.campaign.legend}}
+      {{campaign.legend}}
     </legend>
     {% endif %}
-    {% for field in include.campaign.fields %}
+    {% for field in campaign.fields %}
     <fieldset>
       {% if field.label and field.label_right != true %}
       <label for="{{field.name}}">{{field.label}}</label>
@@ -18,9 +20,9 @@
         name="{{field.name}}"
         {% if field.placeholder %}placeholder="{{field.placeholder}}"{% endif %}
       >
-      {% if include.campaign.submit.attached == field.name %}
+      {% if campaign.submit.attached == field.name %}
       <button type="submit" class="attached">
-        {{include.campaign.submit.text}}
+        {{campaign.submit.text}}
       </button>
       {% endif %}
       {% if field.label and field.label_right %}
@@ -28,10 +30,10 @@
       {% endif %}
     </fieldset>
     {% endfor %}
-    {% if include.campaign.submit.attached == nil %}
+    {% if campaign.submit.attached == nil %}
     <button type="submit">
-      {{include.campaign.submit.text | default: "Sign me up!"}}
+      {{campaign.submit.text | default: "Sign me up!"}}
     </button>
     {% endif %}
   </form>
-</{{include.row.tag | default: 'div'}}>
+</{{row}}>
