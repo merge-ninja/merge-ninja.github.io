@@ -1,0 +1,19 @@
+$media-min-width-small: 40.0rem !default
+$media-min-width-medium: $media-min-width-small * 2 !default
+$media-min-width-large: $media-min-width-small * 3 !default
+
+@mixin media-query($min-width, $media: screen)
+  @media (screen and min-width: $min-width)
+    @content
+
+@mixin media-query-small-up
+  @include media-query($min-width: $media-min-width-small)
+    @content
+
+@mixin media-query-medium-up
+  @include media-query($min-width: $media-min-width-medium)
+    @content
+
+@mixin media-query-large-up
+  @include media-query($min-width: $media-min-width-large)
+    @content
