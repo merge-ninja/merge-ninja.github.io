@@ -2,7 +2,7 @@
 {% comment %}
 - [ ] Logo / Branding
   - [x] Markup: `_includes/logo.html`
-  - [x] Placeholders (`icon.{png,svg}`, `tile{,-wide}.png`)
+  - [x] Placeholders (`icon.{png,svg}`, `tile{,-wide}.png`, `placeholder.com`)
   - [x] Styles
 {% endcomment %}
 {% include cta-launch.html %}
