@@ -1,6 +1,11 @@
 {% assign campaign = include.campaign %}
 {% assign row = include.tag | default: "aside" %}
-<{{row}} class="{{include.classes | join: ' ' | prepend: 'row cta ' | trim}}">
+{% assign classes = include.classes
+  | join: ' '
+  | prepend: 'row cta'
+  | trim
+%}
+<{{row}} class="{{classes}}">
   <form class="call-to-action"
     method="{{campaign.action.method | default: 'post'}}"
     action="{{campaign.action.url}}"

@@ -1,3 +1,7 @@
+signup:
+  disabled: true
+  submit:
+    text: "Try it out in GitHub!"
 launch:
   legend: "Get notified by email when we launch:"
   fields:
