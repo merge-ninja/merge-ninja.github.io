@@ -1,6 +1,6 @@
-# Merge Ninja
+### TODO:
 
-- [ ] Logo / Branding
+- ~~Logo / Branding~~
 - [ ] CTA: Install / Subscribe
 - [ ] Features and Benefits (tile / para)
   - [ ] Zero-Configuration, Zero-Maintenance, 100% Visibility, Instant Traceability

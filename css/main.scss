@@ -101,6 +101,12 @@ textarea {
    Author's custom styles
    ========================================================================== */
 @import "fonts";
+@import "media";
+@import "grid";
+@import "utils";
+
+// simple responsive images
+img { width: 100%; }
 
 /* ==========================================================================
    Helper classes
