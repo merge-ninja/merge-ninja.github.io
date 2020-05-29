@@ -1,22 +1,22 @@
 {% assign campaign = include.campaign %}
-{% assign row = include.tag | default: "aside" %}
+{% assign tag = include.tag | default: "aside" %}
 {% assign classes = include.classes
   | join: ' '
-  | prepend: 'row cta'
   | trim
 %}
-<{{row}} class="{{classes}}">
-  <form class="call-to-action"
+<{{tag}} class="call-to-action {{classes}}">
+  <form
+    class="action"
     method="{{campaign.action.method | default: 'post'}}"
     action="{{campaign.action.url}}"
   >
     {% if campaign.legend %}
-    <legend>
+    <legend class="heading">
       {{campaign.legend}}
     </legend>
     {% endif %}
     {% for field in campaign.fields %}
-    <fieldset>
+    <fieldset class="field">
       {% if field.label and field.label_right != true %}
       <label for="{{field.name}}">{{field.label}}</label>
       {% endif %}
@@ -38,10 +38,12 @@
     </fieldset>
     {% endfor %}
     {% if campaign.submit.attached == nil %}
-    {% include form-button.html
-      disabled=campaign.disabled
-      text=campaign.submit.text
-    %}
+    <fieldset class="controls">
+      {% include form-button.html
+        disabled=campaign.disabled
+        text=campaign.submit.text
+      %}
+    </fieldset>
     {% endif %}
   </form>
-</{{row}}>
+</{{tag}}>
