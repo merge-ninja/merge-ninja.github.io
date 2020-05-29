@@ -26,9 +26,11 @@
         {% if field.placeholder %}placeholder="{{field.placeholder}}"{% endif %}
       >
       {% if campaign.submit.attached == field.name %}
-      <button type="submit" class="attached">
-        {{campaign.submit.text}}
-      </button>
+      {% include form-button.html
+        classes="attached"
+        disabled=campaign.disabled
+        text=campaign.submit.text
+      %}
       {% endif %}
       {% if field.label and field.label_right %}
       <label for="{{field.name}}">{{field.label}}</label>
@@ -36,9 +38,10 @@
     </fieldset>
     {% endfor %}
     {% if campaign.submit.attached == nil %}
-    <button type="submit">
-      {{campaign.submit.text | default: "Sign me up!"}}
-    </button>
+    {% include form-button.html
+      disabled=campaign.disabled
+      text=campaign.submit.text
+    %}
     {% endif %}
   </form>
 </{{row}}>
