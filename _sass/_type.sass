@@ -1,0 +1,26 @@
+@import "scale"
+
+@each $step, $font-weight in $font-weights
+  %font-weight-#{$step}
+    font-weight: $font-weight
+
+@each $step, $font-size in $font-sizes
+  %font-size-#{$step}
+    font-size: $font-size
+
+  %heading-L#{$step}
+    font-size: $font-size
+
+%headline
+  @extend %font-size--2x
+
+%subheadline
+  @extend %font-size--1x
+
+@for $N from 1 through 6
+  h#{$N}, .h#{$N}
+    @extend %heading-L#{$N}x
+
+@each $align in (center, justify, left, right)
+  %text-align-#{$align}
+    text-align: $align
