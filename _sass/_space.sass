@@ -1,0 +1,23 @@
+@import "scale"
+
+@each $step, $unit in $spacing
+  @each $rule in (height, line-height, width)
+    %#{$rule}-#{$step}
+      #{$rule}: $unit
+
+  @each $rule in (padding, margin)
+    %#{$rule}
+      &-#{$step}
+        #{$rule}: $unit
+
+      @each $direction in (left, right, top, bottom)
+          &-#{$direction}-#{$step}
+            #{$rule}-#{$direction}: $unit
+
+      &-vertical-#{$step}
+        @extend %#{$rule}-top-#{$step}
+        @extend %#{$rule}-bottom-#{$step}
+
+      &-horizontal-#{$step}
+        @extend %#{$rule}-left-#{$step}
+        @extend %#{$rule}-right-#{$step}
