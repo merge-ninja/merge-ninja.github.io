@@ -1,0 +1,23 @@
+@import "scale"
+
+%border
+  border-style: solid
+  &-dashed
+    border-style: dashed
+  &-dotted
+    border-style: dotted
+
+@each $step, $value in $borders
+  %border-radius-#{$step}
+    border-radius: $value
+
+  %border-width-#{$step}
+    border-width: $value
+
+@each $dir, $sides in $border-directions
+  %border-radius-#{$dir}
+    @each $side in $sides
+      border-#{$side}-radius: 0
+
+  %border-#{$dir}-none
+    border-#{$dir}-width: 0
