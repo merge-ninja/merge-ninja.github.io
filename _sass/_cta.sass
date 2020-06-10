@@ -1,8 +1,10 @@
 .call-to-action
   @extend %row
-  > .action
+
+  &> .form-action
     @extend %column
     @extend %column-centered
+    @extend %column-75
 
-    .controls
-      text-align: center
+    &> .controls > *
+      @extend %width-full

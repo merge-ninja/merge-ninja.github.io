@@ -6,7 +6,7 @@
 %}
 <{{tag}} class="call-to-action {{classes}}">
   <form
-    class="action"
+    class="form-action"
     method="{{campaign.action.method | default: 'post'}}"
     action="{{campaign.action.url}}"
   >
@@ -16,7 +16,11 @@
     </legend>
     {% endif %}
     {% for field in campaign.fields %}
+    {% if campaign.submit.attached == field.name %}
+    <fieldset class="field attached">
+    {% else %}
     <fieldset class="field">
+    {% endif %}
       {% if field.label and field.label_right != true %}
       <label for="{{field.name}}">{{field.label}}</label>
       {% endif %}
@@ -32,8 +36,8 @@
         text=campaign.submit.text
       %}
       {% endif %}
-      {% if field.label and field.label_right %}
-      <label for="{{field.name}}">{{field.label}}</label>
+      {% if field.type == "radio" or (field.label and field.label_right) %}
+      <label class="inline-label" for="{{field.name}}">{{field.label}}</label>
       {% endif %}
     </fieldset>
     {% endfor %}
