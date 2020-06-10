@@ -1,4 +1,13 @@
 @import "scale"
+
+@mixin columns
+  @each $max-width, $sizes in $column-sizes
+    @each $size in $sizes
+      &-#{$size}
+        @include media-query-small-up
+          flex: 0 0 percentage($max-width/100)
+          max-width: percentage($max-width/100)
+
 // ---- placeholder classes
 
 %row
@@ -18,10 +27,13 @@
     left: 0.5rem
     right: 0.5rem
 
-%column-centered
-  text-align: center
-  @include media-query-small-up
-    text-align: left
+  @include columns
+
+  &-centered
+    margin:
+      left: auto
+      right: auto
+
 
 // ---- concrete classes
 
@@ -38,9 +50,5 @@
     &.centered
       @extend %column-centered
 
-    @each $max-width, $sizes in $column-sizes
-      @each $size in $sizes
-        &.column-#{$size}
-          @include media-query-small-up
-            flex: 0 0 percentage($max-width/100)
-            max-width: percentage($max-width/100)
+    @include columns
+
