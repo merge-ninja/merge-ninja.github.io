@@ -1,54 +1,52 @@
-@import "scale"
+// @use "layout"
+// @use "media"
+// @use "scale"
+// @use "space"
 
-@mixin columns
-  @each $max-width, $sizes in $column-sizes
-    @each $size in $sizes
-      &-#{$size}
-        @include media-query-small-up
-          flex: 0 0 percentage($max-width/100)
-          max-width: percentage($max-width/100)
+=row-only
+  +flex
+  +flex-row
+  +space-vertical(margin, -1x)
 
-// ---- placeholder classes
+=row-small-up // column at "small" size
+  +flex
+  +flex-column
+  +flex-row-small-up
+  +space-vertical(margin, 1x)
 
-%row
-  display: flex
-  flex-direction: column
-  margin-bottom: 1rem
+=row-centered
+  +flex-centered
 
-  @include media-query-small-up
-    flex-direction: row
+=column-base
+  +space(width, full)
+  +space-horizontal(padding, -1x)
 
-%row-centered
-  align-items: center
+=column-centered
+  +space-horizontal(margin, auto)
 
-%column
-  width: 100%
-  padding:
-    left: 0.5rem
-    right: 0.5rem
+=column-width($step)
+  width: map_get($column-widths, $step)
 
-  @include columns
+=column-flex($step)
+  +media-query-small-up
+    flex: 0 0 map_get($column-widths, $step)
+    max-width: map_get($column-widths, $step)
 
-  &-centered
-    margin:
-      left: auto
-      right: auto
+// ---- concrete styles
 
+.row, %row
+  +row-small-up
 
-// ---- concrete classes
+  &.centered, %row-centered
+    +row-centered
 
-*
-  box-sizing: border-box
+  > .column, %column
+    +column-base
 
-.row
-  @extend %row
-  &.centered
-    @extend %row-centered
-  > .column
-    @extend %column
+    @each $step in map_keys($column-widths)
+      &-#{$step}
+        +column-flex($step)
 
-    &.centered
-      @extend %column-centered
-
-    @include columns
+    &.centered, %column-centered
+      +column-centered
 

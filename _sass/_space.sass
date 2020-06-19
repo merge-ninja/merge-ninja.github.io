@@ -1,23 +1,12 @@
-@import "scale"
+// @use "scale"
 
-@each $step, $unit in $spacing
-  @each $rule in (height, line-height, width)
-    %#{$rule}-#{$step}
-      #{$rule}: $unit
+=space($rule, $step)
+  #{$rule}: map_get($spacing, $step)
 
-  @each $rule in (padding, margin)
-    %#{$rule}
-      &-#{$step}
-        #{$rule}: $unit
+=space-vertical($rule, $step)
+  +space(#{$rule}-top, $step)
+  +space(#{$rule}-bottom, $step)
 
-      @each $direction in (left, right, top, bottom)
-          &-#{$direction}-#{$step}
-            #{$rule}-#{$direction}: $unit
-
-      &-vertical-#{$step}
-        @extend %#{$rule}-top-#{$step}
-        @extend %#{$rule}-bottom-#{$step}
-
-      &-horizontal-#{$step}
-        @extend %#{$rule}-left-#{$step}
-        @extend %#{$rule}-right-#{$step}
+=space-horizontal($rule, $step)
+  +space(#{$rule}-left, $step)
+  +space(#{$rule}-right, $step)

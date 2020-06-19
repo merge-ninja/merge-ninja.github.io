@@ -1,4 +1,13 @@
-@import "scale"
+// @import "scale"
+
+=font-weight($step)
+  font-weight: map_get($font-weights, $step)
+
+=font-size($step)
+  font-size: map_get($font-sizes, $step)
+
+=text-centered
+  text-align: center
 
 @each $step, $font-weight in $font-weights
   %font-weight-#{$step}
@@ -8,18 +17,15 @@
   %font-size-#{$step}
     font-size: $font-size
 
-  %heading-L#{$step}
-    font-size: $font-size
-
 %headline
-  @extend %font-size--2x
+  +font-size(-2x)
 
 %subheadline
-  @extend %font-size--1x
+  +font-size(-1x)
 
 @for $N from 1 through 6
   h#{$N}, .h#{$N}
-    @extend %heading-L#{$N}x
+    +font-size("#{$N}x")
 
 @each $align in (center, justify, left, right)
   %text-align-#{$align}

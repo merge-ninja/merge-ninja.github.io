@@ -1,4 +1,14 @@
-.hidden-small
+// @use "scale"
+
+=hidden
   display: none !important
-  @include media-query-small-up
-    display: initial !important
+
+=not-hidden
+  display: initial !important
+
+@each $size in map_keys($screen-widths)
+  .hidden-#{$size}
+    +hidden
+    +media-query($size)
+      +not-hidden
+

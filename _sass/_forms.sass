@@ -1,16 +1,22 @@
-@import "border"
-@import "grid"
-@import "space"
-@import "type"
+// @use "border"
+// @use "grid"
+// @use "space"
+// @use "type"
 
-%input
-  @extend %border
-  @extend %border-width-1x
-  @extend %border-radius-3x
-  @extend %font-weight-7x
-  @extend %height-2x
-  @extend %padding-horizontal-1x
-  @extend %padding-vertical--1x
+=input-base
+  +border
+  +border-width(1x)
+  +border-radius(3x)
+  +font-weight(7x)
+  +space(height, 2x)
+  +space-horizontal(padding, 1x)
+  +space-vertical(padding, none)
+
+  appearance: none // Removes awkward default styles on some inputs for iOS
+  background-color: transparent
+  box-shadow: none
+
+// ---- concrete styles
 
 input[type='email'],
 input[type='number'],
@@ -21,16 +27,17 @@ input[type='text'],
 input[type='url'],
 textarea,
 select
-  @extend %input
-  @extend %width-full
-
-  appearance: none // Removes awkward default styles on some inputs for iOS
-  background-color: transparent
-  box-shadow: none
+  +input-base
+  +space(width, full)
 
   &:focus
     // border-color: $color-primary
     outline: 0
+
+input[type='checkbox'],
+input[type='radio']
+  +space-horizontal(margin, -1x)
+  +space(margin-bottom, -1x)
 
 select
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat
@@ -44,47 +51,43 @@ textarea
 
 label,
 legend
-  @extend %margin-bottom--1x
-  @extend %font-weight-7x
+  +space(margin-bottom, -1x)
+  +font-weight(7x)
 
-  display: block
 legend
-  @extend %font-size-3x
+  +font-size(3x)
+
 label
-  @extend %font-size-5x
+  +font-size(5x)
 
 fieldset
-  @extend %border-width-none
-  @extend %padding-none
-  @extend %row
-  @extend %row-centered
+  +border-width(none) // reset browser styles
 
-input[type='checkbox'],
-input[type='radio']
-  @extend %margin-horizontal--1x
-  @extend %margin-bottom--1x
+  +row-only
+  +space(padding, none)
 
 .label-inline
-  @extend %font-weight-4x
-  @extend %margin-left--1x
+  +font-weight(4x)
+  +space(margin-left, -1x)
 
 .attached
-  &> input
-    @extend %border-radius-left
-    @extend %border-right-none
-  &>
-    button, label
-      @extend %border-radius-right
-      @extend %margin-left-none
+  &> :first-child
+    +border-radius-only(left)
+    +border-width(none, right)
+    +column-width(67)
+  &> :last-child
+    +border-radius-only(right)
+    +column-width(33)
+    +space(margin-left, none)
 
 .button,
 button,
 input[type='button'],
 input[type='reset'],
 input[type='submit']
-  @extend %input
-  @extend %text-align-center
-  @extend %width-auto
+  +input-base
+  +space(width, auto)
+  +text-centered
 
   cursor: pointer
   text-decoration: none

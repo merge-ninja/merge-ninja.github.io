@@ -1,21 +1,21 @@
-@import "scale"
+// @use "scale"
 
-$media-min-width-small: 40.0rem !default
-$media-min-width-medium: $media-min-width-small * 2 !default
-$media-min-width-large: $media-min-width-small * 3 !default
-
-@mixin media-query($min-width, $media: screen)
-  @media (screen and min-width: $min-width)
+=media-query($size, $media: screen)
+  @media #{$media} and (min-width: map_get($screen-widths, $size))
     @content
 
-@mixin media-query-small-up
-  @include media-query($min-width: $media-min-width-small)
+=media-query-small-up
+  +media-query(small)
     @content
 
-@mixin media-query-medium-up
-  @include media-query($min-width: $media-min-width-medium)
+=media-query-medium-up
+  +media-query(medium)
     @content
 
-@mixin media-query-large-up
-  @include media-query($min-width: $media-min-width-large)
+=media-query-large-up
+  +media-query(large)
+    @content
+
+=media-query-huge-up
+  +media-query(huge)
     @content

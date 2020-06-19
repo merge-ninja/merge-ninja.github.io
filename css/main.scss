@@ -101,19 +101,25 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+* { box-sizing: border-box }
+
 // simple responsive images
 img { width: 100%; }
 
 $color-primary: gray;
 $color-quaternary: darkgray;
 
+@import "scale";
 @import "media";
+@import "utils";
+
 @import "border";
-@import "forms";
-@import "grid";
+@import "layout";
 @import "space";
 @import "type";
-@import "utils";
+
+@import "grid";
+@import "forms";
 
 @import "cta";
 

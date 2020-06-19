@@ -1,10 +1,12 @@
+// @use "grid"
+
 .call-to-action
-  @extend %row
+  +row-small-up
 
   &> .form-action
-    @extend %column
-    @extend %column-centered
-    @extend %column-75
+    +column-base
+    +column-centered
+    +column-flex(75)
 
     &> .controls > *
-      @extend %width-full
+      +column-width(full)
