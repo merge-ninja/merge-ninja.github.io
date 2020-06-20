@@ -5,6 +5,7 @@
   - [x] Placeholders (`icon.{png,svg}`, `tile{,-wide}.png`, `placeholder.com`)
   - [x] Styles
 {% endcomment %}
+{% include cta-signup.html %}
 {% include cta-launch.html %}
 {% comment %}
 - [ ] CTA: Install / Subscribe
