@@ -8,9 +8,9 @@
   +border-width(1x)
   +border-radius(3x)
   +font-weight(7x)
-  +space(height, 2x)
-  +space-horizontal(padding, 1x)
-  +space-vertical(padding, none)
+  +height(2x)
+  +padding-horizontal(1x)
+  +padding-vertical(none)
 
   appearance: none // Removes awkward default styles on some inputs for iOS
   background-color: transparent
@@ -28,7 +28,7 @@ input[type='url'],
 textarea,
 select
   +input-base
-  +space(width, full)
+  +width(full)
 
   &:focus
     // border-color: $color-primary
@@ -36,8 +36,8 @@ select
 
 input[type='checkbox'],
 input[type='radio']
-  +space-horizontal(margin, -1x)
-  +space(margin-bottom, -1x)
+  +margin-horizontal(-1x)
+  +margin(-1x, bottom)
 
 select
   background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat
@@ -51,7 +51,7 @@ textarea
 
 label,
 legend
-  +space(margin-bottom, -1x)
+  +margin(-1x, bottom)
   +font-weight(7x)
 
 legend
@@ -64,11 +64,11 @@ fieldset
   +border-width(none) // reset browser styles
 
   +row-only
-  +space(padding, none)
+  +padding(none)
 
 .label-inline
   +font-weight(4x)
-  +space(margin-left, -1x)
+  +margin(-1x, left)
 
 .attached
   &> :first-child
@@ -78,7 +78,7 @@ fieldset
   &> :last-child
     +border-radius-only(right)
     +column-width(33)
-    +space(margin-left, none)
+    +margin(none, left)
 
 .button,
 button,
@@ -86,7 +86,7 @@ input[type='button'],
 input[type='reset'],
 input[type='submit']
   +input-base
-  +space(width, auto)
+  +width(auto)
   +text-centered
 
   cursor: pointer

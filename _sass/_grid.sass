@@ -6,23 +6,23 @@
 =row-only
   +flex
   +flex-row
-  +space-vertical(margin, -1x)
+  +margin-vertical(-1x)
 
 =row-small-up // column at "small" size
   +flex
   +flex-column
   +flex-row-small-up
-  +space-vertical(margin, 1x)
+  +margin-vertical(1x)
 
 =row-centered
   +flex-centered
 
 =column-base
   +space(width, full)
-  +space-horizontal(padding, -1x)
+  +padding-horizontal(-1x)
 
 =column-centered
-  +space-horizontal(margin, auto)
+  +margin-horizontal(auto)
 
 =column-width($step)
   width: map_get($column-widths, $step)
