@@ -1,9 +1,13 @@
 // @use "media"
 
-=flex
+=flex-parent
   display: flex
 
+=flex-child($grow: 0, $shrink: 0, $basis: auto)
+  flex: $grow $shrink $basis
+
 =flex-centered
+  +flex-parent
   align-items: center
 
 =flex-centered-small-up
@@ -23,6 +27,7 @@
     +flex-centered
 
 =flex-column
+  +flex-parent
   flex-direction: column
 
 =flex-column-small-up
@@ -42,6 +47,7 @@
     +flex-column
 
 =flex-row
+  +flex-parent
   flex-direction: row
 
 =flex-row-small-up

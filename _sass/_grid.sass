@@ -4,12 +4,10 @@
 // @use "space"
 
 =row-only
-  +flex
   +flex-row
   +margin-vertical(-1x)
 
 =row-small-up // column at "small" size
-  +flex
   +flex-column
   +flex-row-small-up
   +margin-vertical(1x)
@@ -24,13 +22,16 @@
 =column-centered
   +margin-horizontal(auto)
 
-=column-width($step)
-  width: map_get($column-widths, $step)
+=column-width($step, $rule: width)
+  #{$rule}: map_get($column-widths, $step)
 
 =column-flex($step)
+  $width: map_get($column-widths, $step)
+
   +media-query-small-up
-    flex: 0 0 map_get($column-widths, $step)
-    max-width: map_get($column-widths, $step)
+    +flex-child($basis: $width)
+
+    max-width: $width
 
 // ---- concrete styles
 
