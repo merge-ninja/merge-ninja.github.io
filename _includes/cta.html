@@ -12,7 +12,7 @@
   >
     {% if campaign.legend %}
     <legend class="heading">
-      {{campaign.legend}}
+      {{campaign.legend | markdownify | remove: "<p>" | remove: "</p>"}}
     </legend>
     {% endif %}
     {% for field in campaign.fields %}
