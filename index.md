@@ -8,18 +8,18 @@
 {% include cta-signup.html %}
 {% include cta-launch.html %}
 {% comment %}
-- [ ] CTA: Install / Subscribe
+- [x] CTA: Install / Subscribe
   - [x] Data definition: `_data/campaigns.yml#launch`
   - [x] Markup: `_includes/cta-launch.html`
-  - [ ] Styles
-  - [ ] Server action
+  - [x] Styles
+  - [x] Server action
 {% endcomment %}
 {% include_relative README.md %}
 {% include cta-newsletter.html %}
 {% comment %}
-- [ ] CTA: Subscribe to Drip Campaign
+- [x] CTA: Subscribe to Drip Campaign
   - [x] Data definition: `_data/campaigns.yml#newsletter`
   - [x] Markup: `_includes/cta-newsletter.html`
-  - [ ] Styles
-  - [ ] Server action
+  - [x] Styles
+  - [x] Server action
 {% endcomment %}
