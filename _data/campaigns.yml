@@ -25,5 +25,8 @@ newsletter:
     - name: recipient
       type: email
       placeholder: "you@example.com"
+    - name: newsletter
+      type: hidden
+      value: 1
   submit:
     text: "Join the Merge Ninja Clan"
