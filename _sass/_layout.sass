@@ -1,0 +1,70 @@
+// @use "media"
+
+=flex-parent
+  display: flex
+
+=flex-child($grow: 0, $shrink: 0, $basis: auto)
+  flex: $grow $shrink $basis
+
+=flex-centered
+  +flex-parent
+  align-items: center
+
+=flex-centered-small-up
+  +media-query-small-up
+    +flex-centered
+
+=flex-centered-medium-up
+  +media-query-medium-up
+    +flex-centered
+
+=flex-centered-large-up
+  +media-query-large-up
+    +flex-centered
+
+=flex-centered-huge-up
+  +media-query-huge-up
+    +flex-centered
+
+=flex-column
+  +flex-parent
+  flex-direction: column
+
+=flex-column-small-up
+  +media-query-small-up
+    +flex-column
+
+=flex-column-medium-up
+  +media-query-medium-up
+    +flex-column
+
+=flex-column-large-up
+  +media-query-large-up
+    +flex-column
+
+=flex-column-huge-up
+  +media-query-huge-up
+    +flex-column
+
+=flex-row
+  +flex-parent
+  flex-direction: row
+
+=flex-row-small-up
+  +media-query-small-up
+    +flex-row
+
+=flex-row-medium-up
+  +media-query-medium-up
+    +flex-row
+
+=flex-row-large-up
+  +media-query-large-up
+    +flex-row
+
+=flex-row-huge-up
+  +media-query-huge-up
+    +flex-row
+
+// ---- concrete styles
+

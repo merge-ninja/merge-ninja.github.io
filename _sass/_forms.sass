@@ -1,0 +1,109 @@
+// @use "border"
+// @use "grid"
+// @use "space"
+// @use "type"
+
+=input-base
+  +border-style
+  +border-width(1x)
+  +border-radius(2x)
+  +font-weight(7x)
+  +height(2x)
+  +padding-horizontal(1x)
+  +padding-vertical(none)
+
+  appearance: none // Removes awkward default styles on some inputs for iOS
+  box-shadow: none
+
+// ---- concrete styles
+
+input[type='email'],
+input[type='number'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='url'],
+textarea,
+select
+  +input-base
+  +width(full)
+
+  &:focus
+    // border-color: $color-primary
+    outline: 0
+
+input[type='checkbox'],
+input[type='radio']
+  +margin-horizontal(-1x)
+  +margin(-1x, bottom)
+
+select
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#d1d1d1" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>') center right no-repeat
+  padding-right: 3.0rem
+
+  &:focus
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 29 14" width="29"><path fill="#9b4dca" d="M9.37727 3.625l5.08154 6.93523L19.54036 3.625"/></svg>')
+
+textarea
+  min-height: 6.5rem
+
+label,
+legend
+  +margin(-1x, bottom)
+  +font-weight(7x)
+
+legend
+  +font-size(3x)
+
+label
+  +font-size(5x)
+
+fieldset
+  +border-width(none) // reset browser styles
+
+  +row-only
+  +padding(none)
+
+.label-inline
+  +font-weight(4x)
+  +margin(-1x, left)
+
+.attached
+  &> :first-child
+    +border-radius-only(left)
+    +border-width(none, right)
+    +column-width(67)
+  &> :last-child
+    +border-radius-only(right)
+    +column-width(33)
+    +margin(none, left)
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit']
+  +input-base
+  +width(auto)
+  +text-centered
+
+  cursor: pointer
+  text-decoration: none
+  white-space: nowrap
+
+  &:focus,
+  &:hover
+    // background-color: $color-secondary
+    // border-color: $color-secondary
+    // color: $color-initial
+    outline: 0
+
+  &[disabled]
+    cursor: default
+    opacity: .5
+
+    &:focus,
+    &:hover
+      // background-color: $color-primary
+      // border-color: $color-primary

@@ -1,0 +1,38 @@
+// @use "scale"
+
+=space($rule, $step, $direction: null)
+  $rule: if($direction, #{$rule}-#{$direction}, $rule)
+
+  #{$rule}: map_get($spacing, $step)
+
+=space-vertical($rule, $step)
+  +space(#{$rule}-top, $step)
+  +space(#{$rule}-bottom, $step)
+
+=space-horizontal($rule, $step)
+  +space(#{$rule}-left, $step)
+  +space(#{$rule}-right, $step)
+
+=height($step)
+  +space(height, $step)
+
+=width($step)
+  +space(width, $step)
+
+=margin($step, $direction: null)
+  +space(margin, $step, $direction)
+
+=margin-vertical($step)
+  +space-vertical(margin, $step)
+
+=margin-horizontal($step)
+  +space-horizontal(margin, $step)
+
+=padding($step, $direction: null)
+  +space(padding, $step, $direction)
+
+=padding-vertical($step)
+  +space-vertical(padding, $step)
+
+=padding-horizontal($step)
+  +space-horizontal(padding, $step)

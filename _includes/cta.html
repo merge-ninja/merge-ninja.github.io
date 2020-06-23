@@ -1,0 +1,58 @@
+{% assign campaign = include.campaign %}
+{% assign tag = include.tag | default: "aside" %}
+{% assign classes = include.classes
+  | join: ' '
+  | trim
+%}
+<{{tag}} class="call-to-action {{classes}}">
+  <form
+    class="form-action"
+    method="{{campaign.action.method | default: 'post'}}"
+    action="{{campaign.action.url}}"
+  >
+{%  if campaign.legend %}
+    <legend class="heading">
+      {{campaign.legend | markdownify | remove: "<p>" | remove: "</p>"}}
+    </legend>
+{% endif %}
+{%  for field in campaign.fields %}
+{%    if field.type == "hidden" %}
+      <input type="hidden" name="{{field.name}}" value="{{field.value}}">
+{%    else %}
+{%      if campaign.submit.attached == field.name %}
+    <fieldset class="field attached">
+{%      else %}
+    <fieldset class="field">
+{%      endif %}
+{%      if field.label and field.label_right != true %}
+      <label for="{{field.name}}">{{field.label}}</label>
+{%      endif %}
+      <input
+        type="{{field.type | default: 'text'}}"
+        name="{{field.name}}"
+        {% if field.placeholder %}placeholder="{{field.placeholder}}"{% endif %}
+        {% if field.value %}value="{{field.value}}"{% endif %}
+      >
+{%      if campaign.submit.attached == field.name %}
+      {% include form-button.html
+        classes="attached"
+        disabled=campaign.disabled
+        text=campaign.submit.text
+      %}
+{%      endif %}
+{%      if field.type == "radio" or (field.label and field.label_right) %}
+      <label class="inline-label" for="{{field.name}}">{{field.label}}</label>
+{%      endif %}
+    </fieldset>
+{%    endif %}
+{%  endfor %}
+{%  if campaign.submit.attached == nil %}
+    <fieldset class="controls">
+      {% include form-button.html
+        disabled=campaign.disabled
+        text=campaign.submit.text
+      %}
+    </fieldset>
+{%  endif %}
+  </form>
+</{{tag}}>

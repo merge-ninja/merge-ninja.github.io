@@ -100,13 +100,28 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-@import "fonts";
-@import "media";
-@import "grid";
-@import "utils";
+
+* { box-sizing: border-box }
 
 // simple responsive images
 img { width: 100%; }
+
+$color-primary: gray;
+$color-quaternary: darkgray;
+
+@import "scale";
+@import "media";
+@import "utils";
+
+@import "border";
+@import "layout";
+@import "space";
+@import "type";
+
+@import "grid";
+@import "forms";
+
+@import "cta";
 
 /* ==========================================================================
    Helper classes

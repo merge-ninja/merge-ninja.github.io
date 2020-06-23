@@ -1,0 +1,34 @@
+// @use "scale"
+
+=border-style($style: solid)
+  border-style: $style
+
+=border-only($direction, $step)
+  @each $exclusion in (bottom, left, right, top)
+    border-#{$exclusion}: none
+
+  +border-width($step, $direction)
+
+=border-radius($step, $direction: null)
+  @if $direction
+    border-#{$direction}-radius: map_get($borders, $step)
+  @else
+    border-radius: map_get($borders, $step)
+
+=border-radius-only($direction)
+  @each $exclusion in map_get($border-exclusions, $direction)
+    +border-radius(none, $exclusion)
+
+=border-width($step, $direction: null)
+  @if $direction
+    border-#{$direction}-width: map_get($borders, $step)
+  @else
+    border-width: map_get($borders, $step)
+
+=border-horizontal($step)
+  @each $direction in (left, right)
+    +border-width($step, $direction)
+
+=border-vertical($step)
+  @each $direction in (bottom, top)
+    +border-width($step, $direction)

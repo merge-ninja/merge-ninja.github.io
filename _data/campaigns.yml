@@ -1,0 +1,36 @@
+signup:
+  disabled: true
+  submit:
+    text: "Try it out in GitHub!"
+launch:
+  action:
+    url: https://submit-form.com/MQ5HvxslnoFEN7bTrp8SN
+  legend: "Get notified by email when we launch:"
+  fields:
+    - name: recipient
+      type: email
+      placeholder: "you@example.com"
+    - name: newsletter
+      type: checkbox
+      label: "also join the newsletter?"
+      label_right: true
+  submit:
+    text: "Let me know!"
+    attached: recipient
+
+newsletter:
+  action:
+    url: https://submit-form.com/MQ5HvxslnoFEN7bTrp8SN
+  legend: >-
+    Get advice on training your team via PRs, running positive and productive
+    code reviews, common `git` mistakes, building GitHub Apps and Actions, and
+    more in our monthly newsletter!
+  fields:
+    - name: recipient
+      type: email
+      placeholder: "you@example.com"
+    - name: newsletter
+      type: hidden
+      value: 1
+  submit:
+    text: "Join the Merge Ninja Clan"

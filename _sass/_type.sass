@@ -1,0 +1,34 @@
+// @import "scale"
+
+=font-weight($step)
+  font-weight: map_get($font-weights, $step)
+
+=font-size($step)
+  font-size: map_get($font-sizes, $step)
+
+=text-centered
+  text-align: center
+
+// ---- concrete & placeholder classes
+
+@each $step, $font-weight in $font-weights
+  %font-weight-#{$step}
+    font-weight: $font-weight
+
+@each $step, $font-size in $font-sizes
+  %font-size-#{$step}
+    font-size: $font-size
+
+%headline
+  +font-size(-2x)
+
+%subheadline
+  +font-size(-1x)
+
+@for $N from 1 through 6
+  h#{$N}, .h#{$N}
+    +font-size("#{$N}x")
+
+@each $align in (center, justify, left, right)
+  %text-align-#{$align}
+    text-align: $align

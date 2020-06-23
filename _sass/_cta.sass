@@ -1,0 +1,39 @@
+// @use "grid"
+
+.call-to-action
+  +row-small-up
+
+  &> .form-action
+    +column-base
+    +column-centered
+    +column-flex(75)
+
+    &> .controls > *
+      +column-width(full)
+
+.cta-signup
+  +border-style
+  +border-horizontal(none)
+  +border-vertical(1x)
+  +padding-vertical(1x)
+
+  border-color: gray
+  background-color: lightgray
+
+  .controls > button
+    +height(auto)
+    +margin-vertical(-2x)
+    +padding-vertical(-1x)
+    +font-size(2x)
+
+    background: white
+
+.cta-newsletter
+  +border-style
+  +border-only(top, 1x)
+  +margin(none, bottom)
+  +margin(1x, top)
+  +padding-vertical(2x)
+
+  border-color: gray
+  background-color: lightgray
