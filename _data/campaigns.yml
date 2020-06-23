@@ -4,7 +4,7 @@ signup:
     text: "Try it out in GitHub!"
 launch:
   action:
-    url: https://hooks.zapier.com/hooks/catch/41374/o8h4upr/
+    url: https://submit-form.com/MQ5HvxslnoFEN7bTrp8SN
   legend: "Get notified by email when we launch:"
   fields:
     - name: recipient
@@ -20,7 +20,7 @@ launch:
 
 newsletter:
   action:
-    url: https://hooks.zapier.com/hooks/catch/41374/o8h4upr/
+    url: https://submit-form.com/MQ5HvxslnoFEN7bTrp8SN
   legend: >-
     Get advice on training your team via PRs, running positive and productive
     code reviews, common `git` mistakes, building GitHub Apps and Actions, and
